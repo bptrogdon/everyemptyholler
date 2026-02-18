@@ -11,11 +11,11 @@
             background-color: #000 !important;
             color: #fff !important;
             font-family: "Courier New", Courier, monospace !important;
-            padding: 20px;
-            max-width: 800px;
+            padding: 40px 20px;
+            max-width: 900px;
             margin: 0 auto;
-            border-left: 2px solid red;
-            border-right: 2px solid red;
+            border-left: 4px solid red;
+            border-right: 4px solid red;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -23,31 +23,50 @@
         }
 
         #game-output {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.6;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             white-space: pre-wrap; 
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .character-name {
+            color: red;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .dialogue {
+            color: #ccc;
+            font-style: italic;
+            border-left: 2px solid red;
+            padding-left: 15px;
+            margin: 15px 0;
+            display: block;
         }
 
         .choice-btn {
-            background: #000;
-            color: red;
-            border: 2px solid red;
+            background: #111;
+            color: #fff;
+            border: 1px solid #555;
             padding: 15px 20px;
             margin-bottom: 15px;
             width: 100%;
             text-align: left;
-            font-family: "Arial Black", sans-serif;
+            font-family: "Arial", sans-serif;
             text-transform: uppercase;
+            font-weight: 900;
             cursor: pointer;
             transition: all 0.2s;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         .choice-btn:hover {
             background: red;
             color: #000;
-            transform: translateX(10px);
+            border-color: red;
+            padding-left: 30px;
         }
 
         .nav-return {
@@ -55,6 +74,8 @@
             text-align: center;
             font-size: 0.8rem;
             color: #555;
+            border-top: 1px solid #333;
+            padding-top: 20px;
         }
         
         .nav-return a { color: #555; text-decoration: none; }
@@ -63,14 +84,14 @@
         @media (max-width: 768px) {
             body { border: none; padding: 15px; }
             #game-output { font-size: 1rem; }
-            .choice-btn { padding: 20px; font-size: 1.1rem; }
+            .choice-btn { padding: 20px; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
     <div id="game-container">
-        <div id="game-output">LOADING THE HOLLER...</div>
+        <div id="game-output">INITIALIZING PHENOMENOLOGICAL SIMULATION...</div>
         <div id="choices-container"></div>
     </div>
 
@@ -80,65 +101,79 @@
 
     <script>
         const story = {
+            // --- THE HUB ---
             start: {
-                text: "YOU STAND ON THE EDGE OF THE RECLAIMED MINE SITE.\n\nTo your left, the creek runs orange with acid mine drainage.\nTo your right, the overgrown path leads back to the trailer.\n\nThe silence is heavy. It feels like judgment.",
+                text: "YOU ARE STANDING OUTSIDE THE DOUBLE-WIDE.\n\nThe air is thick with humidity and the smell of sulfur. To the WEST, a man in a dirty suit leans against a rusted truck. To the EAST, an old woman is digging in the hard clay. To the NORTH, the ridgeline disappears into the fog.\n\nYou feel the weight of your own 'thrownness' pressing down on you.",
                 choices: [
-                    { text: "INSPECT THE CREEK", next: "creek" },
-                    { text: "WALK THE PATH", next: "path" },
-                    { text: "SCRY THE VOID", next: "void_gaze" }
+                    { text: "APPROACH THE MAN (WEST)", next: "peddler_intro" },
+                    { text: "APPROACH THE WOMAN (EAST)", next: "widow_intro" },
+                    { text: "HIKE THE RIDGE (NORTH)", next: "ranger_intro" }
                 ]
             },
-            creek: {
-                text: "THE WATER IS DEAD.\n\nIron oxide coats the rocks like dried blood. This is the 'displacement of the soil' you wrote about. It smells of sulfur and old pennies.\n\nYou feel a strange urge to submerge your hands.",
+
+            // --- PATH 1: THE PILL (LOSS OF DASEIN) ---
+            peddler_intro: {
+                text: "The man smiles. His teeth look like corn kernels. He holds out a small, orange bottle.\n\n<span class='character-name'>THE PEDDLER:</span>\n<span class='dialogue'>\"You look heavy, son. Burdened by the geography. Why carry the weight of Being when you can dissolve it? It's a chemical attempt to fill the displacement of the soil.\"</span>",
                 choices: [
-                    { text: "TOUCH THE WATER", next: "touch_water" },
-                    { text: "TURN AWAY", next: "start" }
+                    { text: "ASK WHAT'S IN THE BOTTLE", next: "peddler_dialogue" },
+                    { text: "REFUSE AND LEAVE", next: "start" }
                 ]
             },
-            touch_water: {
-                text: "COLD. BURNING.\n\nYour hand comes up stained. You realize this isn't just pollution; it's history liquidized. The water doesn't wash off.\n\nYOU HAVE BEEN MARKED.",
+            peddler_dialogue: {
+                text: "<span class='character-name'>THE PEDDLER:</span>\n<span class='dialogue'>\"It's pure silence. The world is a 'malcomfort' cell—you can neither stand up nor lie down. This? This is the exit. You swallow this, and the 'ontic void' stops staring back. You become an object. Peaceful. Static.\"</span>\n\nHe shakes the bottle. It sounds like rattling bones.",
                 choices: [
-                    { text: "RETURN TO THE EDGE", next: "start" }
+                    { text: "TAKE THE PILL", next: "bad_ending" },
+                    { text: "BACK AWAY SLOWLY", next: "start" }
                 ]
             },
-            path: {
-                text: "THE PATH IS OVERGROWN.\n\nKudzu has swallowed the old Ford truck. The air buzzes with cicadas. It sounds like static electricity.\n\nYou find a half-crushed pill bottle in the dirt.",
-                choices: [
-                    { text: "EXAMINE THE BOTTLE", next: "bottle" },
-                    { text: "KEEP WALKING", next: "trailer" }
-                ]
-            },
-            bottle: {
-                text: "EMPTY.\n\nA relic of the 'chemical attempt to fill the displacement.' It feels heavy in your hand, heavier than plastic should be.",
-                choices: [
-                    { text: "POCKET IT", next: "path" },
-                    { text: "THROW IT INTO THE KUDZU", next: "path" }
-                ]
-            },
-            void_gaze: {
-                text: "YOU STARE INTO THE ABSENCE OF THE MOUNTAIN.\n\nWhere the peak used to be, there is only flat, gray sky. The 'Ontic Void' stares back.\n\nFor a moment, you feel the urge to step forward into nothing.",
-                choices: [
-                    { text: "STEP FORWARD", next: "death" },
-                    { text: "LOOK FOR A SONG", next: "song" }
-                ]
-            },
-            song: {
-                text: "YOU HUM A LOW DRONE.\n\nIt resonates with the empty space. You are 'dwelling' in the ruin. The fatalism breaks, just for a second. You have found the Hillbilly Elegance.\n\nYOU WIN (FOR NOW).",
-                choices: [
-                    { text: "PLAY AGAIN", next: "start" }
-                ]
-            },
-            death: {
-                text: "YOU STEP INTO THE AIR.\n\nGravity claims you. The flatland gaze wins.\n\nGAME OVER.",
+            bad_ending: {
+                text: "You swallow the pill dry.\n\nImmediately, the hum of the cicadas stops. The mountains flatten into 2D cardboard cutouts. You try to speak, but you have no language. You have lost your Dasein. You are no longer 'Being-there.' You are just... there.\n\nYOU HAVE ENTERED THE MALCOMFORT CELL.\nGAME OVER.",
                 choices: [
                     { text: "RESET THE SIMULATION", next: "start" }
                 ]
             },
-            trailer: {
-                text: "THE TRAILER IS QUIET.\n\nYour guitar sits in the corner. An M-Vave controller blinks red.\n\nThis is where the work happens.",
+
+            // --- PATH 2: DWELLING (RESISTANCE) ---
+            widow_intro: {
+                text: "The woman doesn't look up. She is planting beans in soil that looks like coal dust. Her hands are gnarled roots.\n\n<span class='character-name'>THE WIDOW:</span>\n<span class='dialogue'>\"They took the top off the mountain, but they couldn't take the bottom. That's where the ghosts live.\"</span>",
                 choices: [
-                    { text: "RECORD A TRACK", next: "song" },
-                    { text: "GO BACK OUTSIDE", next: "start" }
+                    { text: "ASK WHY SHE STAYS", next: "widow_dialogue" },
+                    { text: "OFFER TO HELP", next: "widow_task" }
+                ]
+            },
+            widow_dialogue: {
+                text: "She laughs, a dry, cracking sound.\n\n<span class='character-name'>THE WIDOW:</span>\n<span class='dialogue'>\"To dwell is not just to be sheltered. It is to gather the earth and sky. If I leave, I become a ghost in a condo. If I stay, I am a 'knight of faith' in a garden of ash. Hand me that spade.\"</span>",
+                choices: [
+                    { text: "HELP HER DIG", next: "widow_task" },
+                    { text: "LEAVE HER BE", next: "start" }
+                ]
+            },
+            widow_task: {
+                text: "You kneel in the dirt. It stains your jeans. You plant a seed in the toxic earth. It feels absurd. It feels necessary.\n\n<span class='character-name'>THE WIDOW:</span>\n<span class='dialogue'>\"Good. To love a ruined place is the beginning of un-ruining it. You are dwelling now.\"</span>\n\nYOU HAVE FOUND THE STUBBORN ACT OF REMAINING.\nENDING: RESISTANCE.",
+                choices: [
+                    { text: "RETURN TO START", next: "start" }
+                ]
+            },
+
+            // --- PATH 3: TRANSCENDENCE (THE MOUNTAIN) ---
+            ranger_intro: {
+                text: "You climb the path. It ends abruptly at a cliff edge where the mountain used to continue. A Park Ranger stands there, looking out at the devastation. She is smoking a cigarette.\n\n<span class='character-name'>THE RANGER:</span>\n<span class='dialogue'>\"You looking for the view? The view was extracted in 1998.\"</span>",
+                choices: [
+                    { text: "LOOK AT THE VIEW ANYWAY", next: "ranger_dialogue" },
+                    { text: "GO BACK DOWN", next: "start" }
+                ]
+            },
+            ranger_dialogue: {
+                text: "You stand beside her. The valley below is a scar. \n\n<span class='character-name'>THE RANGER:</span>\n<span class='dialogue'>\"Kierkegaard talks about the 'Infinite Resignation'—accepting the loss. But look closer. See the saplings?\"</span>\n\nShe points to a tiny green shoot in the rubble.",
+                choices: [
+                    { text: "TOUCH THE SAPLING", next: "good_ending" },
+                    { text: "IT'S JUST A WEED", next: "start" }
+                ]
+            },
+            good_ending: {
+                text: "You touch the sapling. In the middle of the engineered ruin, life asserts itself.\n\n<span class='character-name'>THE RANGER:</span>\n<span class='dialogue'>\"We make the movement of faith. We believe we will get the mountain back, even though we know we won't. That is the Hillbilly Elegance.\"</span>\n\nThe wind hits your face. You feel light. Absurdly light.\n\nYOU HAVE TRANSCENDED THE VOID.\nTRUE ENDING REACHED.",
+                choices: [
+                    { text: "RESET THE SIMULATION", next: "start" }
                 ]
             }
         };
@@ -149,26 +184,45 @@
             const choicesDiv = document.getElementById("choices-container");
 
             output.innerHTML = ""; 
+            choicesDiv.innerHTML = "";
+
+            // Simple typewriter effect
             let i = 0;
-            const speed = 20; 
+            const speed = 15; 
             
+            // Handle HTML tags in typewriter (skip them so they render instantly)
             function typeWriter() {
                 if (i < scene.text.length) {
+                    if (scene.text.charAt(i) === '<') {
+                        let tag = '';
+                        while (scene.text.charAt(i) !== '>') {
+                            tag += scene.text.charAt(i);
+                            i++;
+                        }
+                        tag += '>';
+                        i++;
+                        output.innerHTML += tag;
+                    }
                     output.innerHTML += scene.text.charAt(i);
                     i++;
                     setTimeout(typeWriter, speed);
+                } else {
+                    // Show buttons after text finishes
+                    renderButtons();
                 }
             }
-            typeWriter();
+            
+            function renderButtons() {
+                scene.choices.forEach(choice => {
+                    const btn = document.createElement("button");
+                    btn.classList.add("choice-btn");
+                    btn.innerText = "> " + choice.text;
+                    btn.onclick = () => renderScene(choice.next);
+                    choicesDiv.appendChild(btn);
+                });
+            }
 
-            choicesDiv.innerHTML = "";
-            scene.choices.forEach(choice => {
-                const btn = document.createElement("button");
-                btn.classList.add("choice-btn");
-                btn.innerText = "> " + choice.text;
-                btn.onclick = () => renderScene(choice.next);
-                choicesDiv.appendChild(btn);
-            });
+            typeWriter();
         }
 
         renderScene("start");
