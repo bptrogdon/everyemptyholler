@@ -64,7 +64,7 @@ h1 {
     box-shadow: 10px 10px 0px red;
 }
 
-/* SHATTERED VORTEX */
+/* SHARDS */
 .vortex-manifesto {
     position: relative;
     height: 70vh;
@@ -262,13 +262,14 @@ footer {
     /* 2. HEADER FIX - SCALING TYPOGRAPHY */
     header { padding: 40px 20px !important; }
     h1 { 
-        font-size: 12vw !important; /* Forces it to fill width but checks limits */
-        letter-spacing: -3px !important; 
-        white-space: normal !important; /* THE CRITICAL FIX: Allows wrapping */
-        line-height: 0.9 !important; /* Tight stack */
+        /* VW units ensure it always fits the width */
+        font-size: 11vw !important; 
+        letter-spacing: -2px !important; 
+        white-space: normal !important; /* ALLOWS WRAPPING */
+        overflow-wrap: break-word !important; /* PREVENTS OVERFLOW */
+        line-height: 1.0 !important;
         margin-bottom: 20px !important;
         text-align: center;
-        overflow-wrap: break-word !important;
     }
 
     .header-sub {
@@ -321,7 +322,7 @@ footer {
     
     /* FIX FOR "THE JUDGE-PENITENT" */
     .proclamation-text h2 { 
-        font-size: 8vw !important; /* Scales to screen width */
+        font-size: 8vw !important; 
         transform: none !important; 
         margin-top: 60px !important;
         text-align: center !important;
