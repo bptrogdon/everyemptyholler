@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE DESCENT // TEXT ADVENTURE</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ADVENTURE-SPECIFIC STYLES */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: "Courier New", Courier, monospace; /* Terminal vibe */
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            border-left: 2px solid red;
+            border-right: 2px solid red;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #game-output {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            white-space: pre-wrap; /* Preserves poetic spacing */
+        }
+
+        .choice-btn {
+            background: #000;
+            color: red;
+            border: 2px solid red;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            width: 100%;
+            text-align: left;
+            font-family: "Arial Black", sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .choice-btn:hover {
+            background: red;
+            color: #000;
+            transform: translateX(10px);
+        }
+
+        .nav-return {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #555;
+        }
+        
+        .nav-return a { color: #555; text-decoration: none; }
+        .nav-return a:hover { color: #fff; }
+
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 768px) {
+            body { border: none; padding: 15px; }
+            #game-output { font-size: 1rem; }
+            .choice-btn { padding: 20px; font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="game-container">
+        <div id="game-output">LOADING THE HOLLER...</div>
+        <div id="choices-container"></div>
+    </div>
+
+    <div class="nav-return">
+        <a href="index.html">[ ABORT // RETURN TO VORTEX ]</a>
+    </div>
+
+    <script>
+        // THE GAME DATA
+        const story = {
+            start: {
+                text: "YOU STAND ON THE EDGE OF THE RECLAIMED MINE SITE.\n\nTo your left, the creek runs orange with acid mine drainage.\nTo your right, the overgrown path leads back to the trailer.\n\nThe silence is heavy. It feels like judgment.",
+                choices: [
+                    { text: "INSPECT THE CREEK", next: "creek" },
+                    { text: "WALK THE PATH", next: "path" },
+                    { text: "SCRY THE VOID", next: "void_gaze" }
+                ]
+            },
+            creek: {
+                text: "THE WATER IS DEAD.\n\nIron oxide coats the rocks like dried blood. This is the 'displacement of the soil' you wrote about. It smells of sulfur and old pennies.\n\nYou feel a strange urge to submerge your hands.",
+                choices: [
+                    { text: "TOUCH THE WATER", next: "touch_water" },
+                    { text: "TURN AWAY", next: "start" }
+                ]
+            },
+            touch_water: {
+                text: "COLD. BURNING.\n\nYour hand comes up stained. You realize this isn't just pollution; it's history liquidized. The water doesn't wash off.\n\nYOU HAVE BEEN MARKED.",
+                choices: [
+                    { text: "RETURN TO THE EDGE", next: "start" }
+                ]
+            },
+            path: {
+                text: "THE PATH IS OVERGROWN.\n\nKudzu has swallowed the old Ford truck. The air buzzes with cicadas. It sounds like static electricity.\n\nYou find a half-crushed pill bottle in the dirt.",
+                choices: [
+                    { text: "EXAMINE THE BOTTLE", next: "bottle" },
+                    { text: "KEEP WALKING", next: "trailer" }
+                ]
+            },
+            bottle: {
+                text: "EMPTY.\n\nA relic of the 'chemical attempt to fill the displacement.' It feels heavy in your hand, heavier than plastic should be.",
+                choices: [
+                    { text: "POCKET IT", next: "path" },
+                    { text: "THROW IT INTO THE KUDZU", next: "path" }
+                ]
+            },
+            void_gaze: {
+                text: "YOU STARE INTO THE ABSENCE OF THE MOUNTAIN.\n\nWhere the peak used to be, there is only flat, gray sky. The 'Ontic Void' stares back.\n\nFor a moment, you feel the urge to step forward into nothing.",
+                choices: [
+                    { text: "STEP FORWARD", next: "death" },
+                    { text: "LOOK FOR A SONG", next: "song" }
+                ]
+            },
+            song: {
+                text: "YOU HUM A LOW DRONE.\n\nIt resonates with the empty space. You are 'dwelling' in the ruin. The fatalism breaks, just for a second. You have found the Hillbilly Elegance.\n\nYOU WIN (FOR NOW).",
+                choices: [
+                    { text: "PLAY AGAIN", next: "start" }
+                ]
+            },
+            death: {
+                text: "YOU STEP INTO THE AIR.\n\nGravity claims you. The flatland gaze wins.\n\nGAME OVER.",
+                choices: [
+                    { text: "RESET THE SIMULATION", next: "start" }
+                ]
+            },
+            trailer: {
+                text: "THE TRAILER IS QUIET.\n\nYour guitar sits in the corner. An M-Vave controller blinks red.\n\nThis is where the work happens.",
+                choices: [
+                    { text: "RECORD A TRACK", next: "song" },
+                    { text: "GO BACK OUTSIDE", next: "start" }
+                ]
+            }
+        };
+
+        // THE ENGINE
+        function renderScene(sceneId) {
+            const scene = story[sceneId];
+            const output = document.getElementById("game-output");
+            const choicesDiv = document.getElementById("choices-container");
+
+            // Typewriter Effect for Text
+            output.innerHTML = ""; 
+            let i = 0;
+            const speed = 20; // Speed of typing
+            
+            function typeWriter() {
+                if (i < scene.text.length) {
+                    output.innerHTML += scene.text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
+            typeWriter();
+
+            // Render Choices
+            choicesDiv.innerHTML = "";
+            scene.choices.forEach(choice => {
+                const btn = document.createElement("button");
+                btn.classList.add("choice-btn");
+                btn.innerText = "> " + choice.text;
+                btn.onclick = () => renderScene(choice.next);
+                choicesDiv.appendChild(btn);
+            });
+        }
+
+        // START GAME
+        renderScene("start");
+    </script>
+</body>
+</html>
