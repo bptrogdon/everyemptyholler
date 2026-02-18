@@ -45,7 +45,7 @@ header {
 }
 
 h1 {
-    font-size: clamp(3rem, 12vw, 10rem);
+    font-size: clamp(3rem, 10vw, 9rem);
     font-weight: 900;
     letter-spacing: -6px;
     margin: 0;
@@ -72,7 +72,7 @@ h1 {
     align-items: center;
     justify-content: center;
     border-bottom: 15px solid #000;
-    overflow: hidden;
+    overflow: hidden; 
 }
 
 .shard {
@@ -210,20 +210,16 @@ footer {
     border: 1px solid #fff;
 }
 
-/* --- PROPHETIC MODE (PAPER.HTML) STYLES --- */
+/* --- PROPHETIC MODE STYLES (For paper.html) --- */
 .prophetic-mode {
     background-color: #000;
     color: #fff;
     text-align: center;
 }
 
-.prophetic-mode .topo-background-image {
-    opacity: 0.2;
-}
-
+.prophetic-mode .topo-background-image { opacity: 0.2; }
 .prophet-nav { padding: 40px; border-bottom: 1px solid #333; }
 .prophet-nav a { color: #fff; text-decoration: none; border: 2px solid #fff; padding: 10px 20px; font-weight: 900; }
-
 .manifesto-scroll { max-width: 900px; margin: 0 auto; padding: 100px 20px; position: relative; z-index: 2; }
 
 .manifesto-header h1 {
@@ -252,7 +248,7 @@ footer {
 #bury-void:active { transform: translate(5px, 5px); box-shadow: 5px 5px 0px #fff; }
 
 
-/* --- RESPONSIVE BRUTALISM (THE FIX) --- */
+/* --- RESPONSIVE BRUTALISM (THE MOBILE FIX) --- */
 @media (max-width: 768px) {
     /* 1. ORIENTATION LOCK */
     .orientation-warning {
@@ -264,13 +260,15 @@ footer {
     @media (orientation: landscape) { .orientation-warning { display: flex; } }
 
     /* 2. HEADER FIX - SCALING TYPOGRAPHY */
-    header { padding: 60px 20px !important; }
+    header { padding: 40px 20px !important; }
     h1 { 
-        font-size: 8vw !important; /* PERFECT FIT FOR "TRANSCENDENCE" */
-        letter-spacing: -2px !important; 
-        white-space: nowrap !important;
-        line-height: 1.0 !important;
+        font-size: 12vw !important; /* Forces it to fill width but checks limits */
+        letter-spacing: -3px !important; 
+        white-space: normal !important; /* THE CRITICAL FIX: Allows wrapping */
+        line-height: 0.9 !important; /* Tight stack */
         margin-bottom: 20px !important;
+        text-align: center;
+        overflow-wrap: break-word !important;
     }
 
     .header-sub {
@@ -306,18 +304,28 @@ footer {
     .lyric-column { padding: 40px 20px !important; }
     .blast-side, .bless-side { padding: 60px 20px !important; }
     
-    h2 { font-size: 4rem !important; letter-spacing: -4px !important; }
+    h2 { font-size: 3rem !important; letter-spacing: -2px !important; }
     
     /* 5. PROPHETIC MODE FIXES */
     .prophetic-mode { background: #000 !important; color: #fff !important; }
     .prophetic-mode .manifesto-scroll { padding: 20px !important; }
-    .prophetic-mode h1 { white-space: normal !important; font-size: 4rem !important; } 
+    
+    /* FIX FOR "THUS SPAKE THE HOLLER" */
+    .prophetic-mode h1 { 
+        white-space: normal !important; 
+        font-size: 10vw !important; 
+        line-height: 0.9 !important;
+    } 
+    
     .proclamation-text { text-align: left !important; font-size: 1.2rem !important; }
+    
+    /* FIX FOR "THE JUDGE-PENITENT" */
     .proclamation-text h2 { 
-        font-size: 2rem !important; 
+        font-size: 8vw !important; /* Scales to screen width */
         transform: none !important; 
         margin-top: 60px !important;
         text-align: center !important;
+        white-space: normal !important;
     }
     
     /* 6. TOPO ZOOM */
@@ -326,5 +334,4 @@ footer {
     /* 7. HIDE DESKTOP CURSOR */
     #scry-cursor { display: none !important; }
 }
-
 
