@@ -253,3 +253,61 @@ h1:hover {
 .prophetic-mode .proclamation-text p::first-letter {
     font-size: 4rem; color: red; float: left; margin-right: 10px; line-height: 1;
 }
+/* --- MOBILE RECONSTRUCTION --- */
+@media (max-width: 768px) {
+    /* 1. RESET THE VORTEX */
+    .vortex-grid, .vortex-manifesto {
+        height: auto !important; /* Allow the section to grow vertically */
+        display: block !important;
+        padding: 40px 20px !important;
+    }
+
+    /* 2. UNSHATTER THE SHARDS */
+    .shard {
+        position: relative !important; /* Forces them to stack instead of overlap */
+        max-width: 100% !important;
+        left: 0 !important;
+        top: 0 !important;
+        transform: none !important; /* Removes the tilt for readability */
+        clip-path: none !important; /* Removes the jagged edges that cut off text */
+        margin-bottom: 20px !important;
+        padding: 30px 20px !important;
+    }
+
+    /* 3. SCALE THE HEADERS */
+    h1 {
+        font-size: 3.2rem !important; /* Shrinks the title so it fits the screen width */
+        letter-spacing: -2px !important;
+        line-height: 0.9 !important;
+    }
+
+    h2 {
+        font-size: 2.8rem !important;
+    }
+
+    /* 4. REORGANIZE THE FLOOD */
+    .text-flood, .audio-manifesto-grid, .manifesto-grid {
+        grid-template-columns: 1fr !important; /* Switches from side-by-side to stacked */
+    }
+
+    .academic-column {
+        border-right: none !important;
+        border-bottom: 10px solid #000;
+    }
+
+    /* 5. FIX THE PROCLAMATION (PAPER) */
+    .proclamation-text {
+        font-size: 1.1rem !important; /* Easier to read on a phone */
+        text-align: left !important; /* Justify alignment often breaks on narrow screens */
+        padding: 0 10px !important;
+    }
+
+    .proclamation-text p::first-letter {
+        font-size: 3rem !important;
+    }
+
+    /* 6. HIDE THE SCRYING CURSOR ON MOBILE */
+    #scry-cursor {
+        display: none !important; /* Hover effects don't work on touchscreens */
+    }
+}
