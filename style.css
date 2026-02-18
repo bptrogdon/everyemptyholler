@@ -247,6 +247,97 @@ footer {
 }
 #bury-void:active { transform: translate(5px, 5px); box-shadow: 5px 5px 0px #fff; }
 
+/* --- VISUAL EVIDENCE STYLING --- */
+.video-evidence {
+    background: #000;
+    padding: 0;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.evidence-label {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 900;
+    margin-bottom: 30px;
+    letter-spacing: -2px;
+    color: #fff;
+    border: 2px solid red;
+    display: inline-block;
+    padding: 10px 20px;
+    background: #000;
+    transform: rotate(-1deg); 
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    border: 10px solid #fff; /* Stark white border */
+    
+    /* THE AESTHETIC FILTER: Looks like VHS until hover */
+    filter: grayscale(100%) contrast(120%) brightness(0.8);
+    transition: filter 0.5s ease, border-color 0.5s ease;
+}
+
+.video-wrapper:hover {
+    filter: grayscale(0%) contrast(100%) brightness(1); /* Color returns */
+    border-color: red; /* Border glows red */
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- THE HAZARD TRIGGER (INDEX PAGE) --- */
+.blast-zone-trigger {
+    margin-top: 60px;
+    text-align: center;
+    border: 4px solid red;
+    padding: 30px;
+    /* This creates the "Hazard Stripe" background */
+    background: repeating-linear-gradient(
+        45deg,
+        #000,
+        #000 10px,
+        #111 10px,
+        #111 20px
+    );
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    display: block; /* Ensures it takes up space */
+}
+
+.blast-zone-trigger:hover {
+    transform: scale(1.02);
+    border-color: #fff;
+    box-shadow: 0 0 30px red;
+}
+
+.blast-zone-trigger a {
+    font-size: clamp(1.5rem, 6vw, 3rem); 
+    font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 2px 2px 0px red;
+    display: block;
+    line-height: 1.1;
+}
+
+.blast-subtext {
+    color: red;
+    font-family: monospace;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.hazard-symbol { color: red; margin: 0 10px; font-size: 1.2em; }
 
 /* --- RESPONSIVE BRUTALISM (THE MOBILE FIX) --- */
 @media (max-width: 768px) {
@@ -261,7 +352,7 @@ footer {
 
     /* 2. HEADER FIX - SCALING TYPOGRAPHY */
     header { padding: 40px 20px !important; }
-    /* INSIDE @media (max-width: 768px) */
+
     h1 { 
         font-size: 8.5vw !important; /* SCALED DOWN TO FIT 13 CHARACTERS */
         letter-spacing: -3px !important; /* TIGHTER TRACKING */
@@ -334,131 +425,7 @@ footer {
     
     /* 7. HIDE DESKTOP CURSOR */
     #scry-cursor { display: none !important; }
-    /* --- VISUAL EVIDENCE STYLING --- */
-.video-evidence {
-    background: #000;
-    padding: 0;
-    margin-bottom: 40px;
-    text-align: center;
 }
-
-.evidence-label {
-    font-size: clamp(1.5rem, 5vw, 3rem);
-    font-weight: 900;
-    margin-bottom: 30px;
-    letter-spacing: -2px;
-    color: #fff;
-    border: 2px solid red;
-    display: inline-block;
-    padding: 10px 20px;
-    background: #000;
-    transform: rotate(-1deg); 
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-    overflow: hidden;
-    width: 100%;
-    border: 10px solid #fff; /* Stark white border */
-    
-    /* THE AESTHETIC FILTER: Looks like VHS until hover */
-    filter: grayscale(100%) contrast(120%) brightness(0.8);
-    transition: filter 0.5s ease, border-color 0.5s ease;
-}
-
-.video-wrapper:hover {
-    filter: grayscale(0%) contrast(100%) brightness(1); /* Color returns */
-    border-color: red; /* Border glows red */
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* --- UPDATE TO MATCH NEW AESTHETIC --- */
-.video-evidence {
-    background: #000;
-    padding: 0;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-/* Ensure the link on the main page looks like a "Blast" trigger */
-.blast-trigger {
-    text-align: center; 
-    margin-top: 40px; 
-    border: 4px solid #fff; 
-    display: block; 
-    padding: 20px; 
-    background: #000;
-    transition: all 0.2s;
-}
-
-.blast-trigger:hover {
-    background: red;
-    border-color: #000;
-    transform: skewX(-5deg);
-}
-
-.blast-trigger a {
-    color: red; 
-    font-weight: 900; 
-    text-decoration: none; 
-    font-size: 1.5rem;
-}
-
-.blast-trigger:hover a { color: #000; }
-}
-}/* --- THE HAZARD TRIGGER (INDEX PAGE) --- */
-.blast-zone-trigger {
-    margin-top: 60px;
-    text-align: center;
-    border: 4px solid red;
-    padding: 30px;
-    /* This creates the "Hazard Stripe" background */
-    background: repeating-linear-gradient(
-        45deg,
-        #000,
-        #000 10px,
-        #111 10px,
-        #111 20px
-    );
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    cursor: pointer;
-    display: block; /* Ensures it takes up space */
-}
-
-.blast-zone-trigger:hover {
-    transform: scale(1.02);
-    border-color: #fff;
-    box-shadow: 0 0 30px red;
-}
-
-.blast-zone-trigger a {
-    /* CLAMP makes it huge: Minimum 1.5rem, Preferred 6% of screen width, Max 3rem */
-    font-size: clamp(1.5rem, 6vw, 3rem); 
-    font-weight: 900;
-    color: #fff;
-    text-decoration: none;
-    text-shadow: 2px 2px 0px red;
-    display: block;
-    line-height: 1.1;
-}
-
-.blast-subtext {
-    color: red;
-    font-family: monospace;
-    margin-top: 15px;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-}
-
-.hazard-symbol { color: red; margin: 0 10px; font-size: 1.2em; }
-
 
 
 
