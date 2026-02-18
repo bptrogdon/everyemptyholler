@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISUAL EVIDENCE // FIGURE 1.A</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* PAGE-SPECIFIC OVERRIDES FOR THE CINEMA MODE */
+        body {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            border-top: 10px solid red;
+            border-bottom: 10px solid red;
+        }
+
+        .evidence-container {
+            width: 100%;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        .metadata-header {
+            font-family: monospace;
+            color: red;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .return-link {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #fff;
+            padding: 15px 30px;
+            transition: all 0.2s;
+        }
+
+        .return-link:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 20px #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="noise-overlay"></div>
+
+    <div class="evidence-container">
+        <div class="metadata-header">
+            FILE_ID: 004-VISUAL<br>
+            STATUS: RECOVERED<br>
+            LOCATION: UNKNOWN HOLLER
+        </div>
+
+        <div class="video-evidence">
+            <div class="evidence-label">FIGURE 1.A // THE INTERCEPTION</div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE?controls=0&modestbranding=1&rel=0" 
+                        title="Visual Evidence" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="return-link">[ CLOSE FILE // RETURN TO VORTEX ]</a>
+        </div>
+    </div>
+
+</body>
+</html>
