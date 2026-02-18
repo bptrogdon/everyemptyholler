@@ -198,4 +198,31 @@ footer {
 @media (max-width: 1024px) {
     .text-flood, .manifesto-grid { grid-template-columns: 1fr; }
     .shard { position: relative; max-width: 100%; transform: none !important; clip-path: none; margin-bottom: 30px; }
+
+}
+/* --- THE SCRYING CURSOR MODULE --- */
+
+#scry-cursor {
+    position: absolute; /* Allows it to move freely based on JS coordinates */
+    pointer-events: none; /* Crucial: lets you click "through" the label to links */
+    background: #000;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    font-weight: 900;
+    z-index: 9999; /* Keeps it above every other element on the page */
+    letter-spacing: 2px;
+    white-space: nowrap;
+    border: 1px solid #fff; /* Optional: adds a thin "industrial" border */
+}
+
+/* INTERACTIVE DISTORTIONS */
+h1:hover {
+    color: transparent;
+    -webkit-text-stroke: 2px #000;
+}
+
+.shard:hover {
+    filter: invert(1);
+    cursor: help;
 }
