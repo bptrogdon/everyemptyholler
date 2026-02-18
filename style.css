@@ -140,22 +140,25 @@ footer { padding: 80px; text-align: center; font-size: 1.5rem; letter-spacing: 1
     }
     @media (orientation: landscape) { .orientation-warning { display: flex; } }
 
-    /* --- THE "E" AND LINE-BREAK FIX --- */
+   /* --- HEADER FIX FOR MOBILE --- */
     h1 { 
-        font-size: clamp(1.4rem, 8.5vw, 2.1rem) !important; /* Scaled down slightly more for certainty */
-        letter-spacing: -2.5px !important; /* Tighter for mobile to keep "E" inside */
-        white-space: nowrap !important; /* FORCES ALL ONE LINE */
-        display: block;
-        text-align: center;
+        font-size: clamp(1.4rem, 8.5vw, 2.1rem) !important; 
+        letter-spacing: -2.5px !important; 
+        white-space: nowrap !important; /* Keeps TRANSCENDENCE on one line */
         width: 100%;
+        text-align: center;
+        margin-bottom: 20px !important;
     }
 
     .header-sub {
         font-size: 0.9rem !important;
-        width: 100% !important; 
+        width: 100% !important; /* Forces the black bar to fill the screen width */
+        max-width: none !important; /* Removes the desktop restriction */
         display: block !important;
-        padding: 15px !important;
-        box-shadow: 4px 4px 0px red !important; 
+        padding: 20px 15px !important;
+        box-shadow: 4px 4px 0px red !important;
+        line-height: 1.4 !important; /* Gives the text room to breathe */
+        white-space: normal !important; /* Allows the sub-text to wrap naturally */
     }
     /* --------------------------------- */
 
@@ -236,3 +239,4 @@ footer { padding: 80px; text-align: center; font-size: 1.5rem; letter-spacing: 1
         border-color: rgba(255, 0, 0, 1);
     }
 }
+
