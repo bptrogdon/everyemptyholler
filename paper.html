@@ -44,15 +44,15 @@
             // 1. Target the Reality Layer and Blur it
             const reality = document.getElementById('reality-layer');
             reality.style.filter = "invert(1) contrast(500%) brightness(0.5) blur(5px)";
-            reality.style.transition = "all 0.2s ease"; // Smooth transition into the void
+            reality.style.transition = "all 0.2s ease"; 
             
-            // 2. Wait 0.5 seconds, then spawn the Sharp Link
+            // 2. Spawn the Sharp Link
             setTimeout(() => {
                 const fullPaperLink = document.createElement('a');
                 fullPaperLink.href = 'plain-text.html';
                 fullPaperLink.innerText = "[ ACCESS FULL CONFERENCE PAPER ]";
                 
-                // STYLING: This link exists OUTSIDE the blurred reality layer
+                // STYLING: Link is OUTSIDE the reality layer, relative to the VIEWPORT
                 fullPaperLink.style.position = "fixed";
                 fullPaperLink.style.top = "50%";
                 fullPaperLink.style.left = "50%";
