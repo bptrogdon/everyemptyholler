@@ -1,4 +1,4 @@
-/* GLOBAL SETTINGS */
+/* GLOBAL STYLING */
 *, *:before, *:after { box-sizing: border-box !important; }
 * { text-transform: uppercase; cursor: crosshair; }
 
@@ -13,7 +13,6 @@ body {
     filter: contrast(125%) brightness(95%);
 }
 
-/* XEROX CRACKLE OVERLAY */
 .noise-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -23,7 +22,6 @@ body {
     background: url('https://www.transparenttextures.com/patterns/stardust.png');
 }
 
-/* THE DRIFTING TOPO BACKGROUND */
 .topo-background-image {
     position: fixed;
     top: -10%; left: -10%;
@@ -74,7 +72,7 @@ h1 {
     align-items: center;
     justify-content: center;
     border-bottom: 15px solid #000;
-    overflow: hidden; /* Contains the shards */
+    overflow: hidden;
 }
 
 .shard {
@@ -161,7 +159,7 @@ h1 {
     background: #000; color: #fff;
     padding: 120px 40px;
     clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
-    margin-bottom: -1px; /* Fixes pixel gap */
+    margin-bottom: -1px;
 }
 
 .audio-label {
@@ -268,8 +266,8 @@ footer {
     /* 2. HEADER FIX - SCALING TYPOGRAPHY */
     header { padding: 60px 20px !important; }
     h1 { 
-        font-size: 13vw !important; /* Forces it to fit width exactly */
-        letter-spacing: -3px !important; 
+        font-size: 8vw !important; /* PERFECT FIT FOR "TRANSCENDENCE" */
+        letter-spacing: -2px !important; 
         white-space: nowrap !important;
         line-height: 1.0 !important;
         margin-bottom: 20px !important;
@@ -296,7 +294,7 @@ footer {
         left: auto !important; top: auto !important; 
         transform: none !important; clip-path: none !important; 
         margin-bottom: 40px; 
-        border: 4px solid #000 !important; /* Brutalist Card Look */
+        border: 4px solid #000 !important; 
         background: #fff !important; color: #000 !important;
         padding: 30px !important;
     }
@@ -313,7 +311,7 @@ footer {
     /* 5. PROPHETIC MODE FIXES */
     .prophetic-mode { background: #000 !important; color: #fff !important; }
     .prophetic-mode .manifesto-scroll { padding: 20px !important; }
-    .prophetic-mode h1 { white-space: normal !important; font-size: 4rem !important; } /* Let main title wrap on paper */
+    .prophetic-mode h1 { white-space: normal !important; font-size: 4rem !important; } 
     .proclamation-text { text-align: left !important; font-size: 1.2rem !important; }
     .proclamation-text h2 { 
         font-size: 2rem !important; 
@@ -328,5 +326,4 @@ footer {
     /* 7. HIDE DESKTOP CURSOR */
     #scry-cursor { display: none !important; }
 }
-
 
