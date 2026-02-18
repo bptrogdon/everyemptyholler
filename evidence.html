@@ -3,53 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VISUAL EVIDENCE // FIGURE 1.A</title>
+    <title>VISUAL BLASTS // MOUNTAINOUS VISIONS</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* PAGE-SPECIFIC OVERRIDES FOR THE CINEMA MODE */
+        /* PAGE-SPECIFIC OVERRIDES */
         body {
             background-color: #000;
             color: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Aligns to top for scrolling */
             min-height: 100vh;
             border-top: 10px solid red;
             border-bottom: 10px solid red;
+            padding: 40px 20px;
         }
 
-        .evidence-container {
+        .blast-container {
             width: 100%;
-            max-width: 900px;
-            padding: 20px;
+            max-width: 1200px; /* INCREASED MAX WIDTH FOR BIGGER VIDEO */
         }
 
-        .metadata-header {
-            font-family: monospace;
-            color: red;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
+        /* THE MYTHIC PERSONNEL HEADER */
+        .personnel-header {
+            font-family: "Arial Black", sans-serif;
+            text-transform: uppercase;
+            border-bottom: 4px solid red;
+            padding-bottom: 20px;
+            margin-bottom: 60px;
             text-align: left;
-            font-size: 0.9rem;
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            line-height: 1.6;
+            letter-spacing: 1px;
+        }
+
+        .personnel-role { color: red; font-weight: 900; }
+        .quote-primordial { 
+            margin-top: 20px; 
+            font-style: italic; 
+            color: #666; 
+            font-family: serif; 
+            font-size: 1.5rem; 
+            border-left: 2px solid #fff;
+            padding-left: 15px;
+        }
+
+        /* VIDEO STACKING */
+        .video-blast {
+            margin-bottom: 100px;
+            text-align: center;
+        }
+
+        .blast-label {
+            font-size: clamp(1.2rem, 4vw, 2.5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            color: #fff;
+            background: #000;
+            display: inline-block;
+            border: 2px solid #fff;
+            padding: 10px 20px;
+            transform: skewX(-10deg);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            width: 100%;
+            border: 10px solid #fff;
+            
+            /* THE AESTHETIC FILTER */
+            filter: grayscale(100%) contrast(120%) brightness(0.9);
+            transition: filter 0.5s ease, border-color 0.5s ease;
+        }
+
+        .video-wrapper:hover {
+            filter: grayscale(0%) contrast(100%) brightness(1);
+            border-color: red;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
         }
 
         .return-link {
             margin-top: 40px;
-            font-size: 1.2rem;
+            font-size: 0.9rem; /* SMALLER LINK */
             font-weight: 900;
-            color: #fff;
+            color: #666;
             text-decoration: none;
-            border: 2px solid #fff;
-            padding: 15px 30px;
+            border: 1px solid #333;
+            padding: 10px 20px;
             transition: all 0.2s;
+            font-family: sans-serif;
         }
 
         .return-link:hover {
-            background: #fff;
-            color: #000;
-            box-shadow: 0 0 20px #fff;
+            color: red;
+            border-color: red;
         }
     </style>
 </head>
@@ -57,24 +113,37 @@
 
     <div class="noise-overlay"></div>
 
-    <div class="evidence-container">
-        <div class="metadata-header">
-            FILE_ID: 004-VISUAL<br>
-            STATUS: RECOVERED<br>
-            LOCATION: UNKNOWN HOLLER
+    <div class="blast-container">
+        
+        <div class="personnel-header">
+            <div>LUKE GRIFFIN <span class="personnel-role">// HILLBILLY POET WARRIOR</span></div>
+            <div>AUSTIN NICELY <span class="personnel-role">// APPALACHIAN MUSIC WIZARD</span></div>
+            <div>BEN TROGDON <span class="personnel-role">// HOLLER FRAUD SPELLSWORD</span></div>
+            
+            <div class="quote-primordial">"PRIMORDIAL THE TASTE FOR FIRE"</div>
         </div>
 
-        <div class="video-evidence">
-            <div class="evidence-label">FIGURE 1.A // THE INTERCEPTION</div>
+        <div class="video-blast">
+            <div class="blast-label">FIGURE 1.A // HILLBILLY ELEGANCE: MAKE THE MYTH YOUR CURE</div>
             <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/7HXji4D7L78?controls=0&modestbranding=1&rel=0" 
-                        title="Visual Evidence" frameborder="0" 
+                        title="Hillbilly Elegance" frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
         </div>
 
-        <div style="text-align: center;">
+        <div class="video-blast">
+            <div class="blast-label">FIGURE 1.B // FACING GOD: RED ROVER RED ROVER</div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/wT2z8ZBPC4g?controls=0&modestbranding=1&rel=0" 
+                        title="Facing God" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 60px;">
             <a href="index.html" class="return-link">[ CLOSE FILE // RETURN TO VORTEX ]</a>
         </div>
     </div>
