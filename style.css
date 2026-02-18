@@ -129,27 +129,67 @@ footer { padding: 80px; text-align: center; font-size: 1.5rem; letter-spacing: 1
     font-size: 0.8rem; font-weight: 900; z-index: 9999;
 }
 
-/* BRUTE FORCE MOBILE STABILIZER */
+/* --- THE BRUTE FORCE MOBILE STABILIZER --- */
 @media (max-width: 768px) {
+    /* 1. ORIENTATION GATEKEEPER */
     .orientation-warning {
-        display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: #000; color: #fff; z-index: 99999; justify-content: center; align-items: center; text-align: center; padding: 20px;
+        display: none; position: fixed; top: 0; left: 0; 
+        width: 100%; height: 100%; background: #000 !important; 
+        color: #fff !important; z-index: 99999; justify-content: center; 
+        align-items: center; text-align: center; padding: 20px;
     }
     @media (orientation: landscape) { .orientation-warning { display: flex; } }
 
-    .vortex-manifesto { height: auto !important; min-height: 600px; display: block; padding: 40px 20px; }
-    .shard { position: relative !important; width: 100% !important; left: auto !important; top: auto !important; transform: none !important; clip-path: none !important; margin-bottom: 30px; border: 8px solid #000 !important; }
+    /* 2. FORCE DARK MODE FOR PROPHETIC TEXT */
+    .prophetic-mode {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+    .prophetic-mode .manifesto-scroll {
+        background-color: rgba(0, 0, 0, 0.85) !important;
+        padding: 40px 15px !important;
+    }
+
+    /* 3. FIX THE INVISIBLE TEXT */
+    .proclamation-text, .proclamation-text p, .proclamation-text h2 {
+        color: #fff !important; /* Forces white text on mobile */
+    }
+
+    /* 4. SHARD STACKING */
+    .vortex-manifesto { height: auto !important; min-height: 600px; display: block; padding: 20px; }
+    .shard { 
+        position: relative !important; width: 100% !important; 
+        left: auto !important; top: auto !important; 
+        transform: none !important; clip-path: none !important; 
+        margin-bottom: 30px; border: 8px solid #000 !important; 
+    }
     
     .text-flood, .manifesto-grid { grid-template-columns: 1fr !important; }
-    .academic-column { border-right: none; border-bottom: 15px solid #000; }
     
-    .topo-background-image { background-attachment: scroll !important; background-size: 300% auto !important; }
-    h1 { font-size: 3rem !important; }
-    
-    #scry-cursor { display: none; }
+    /* 5. TOPO BACKGROUND DEPTH */
+    .topo-background-image { 
+        background-attachment: scroll !important; 
+        background-size: 300% auto !important; 
+        opacity: 0.4 !important;
+    }
+
+    h1 { font-size: 2.5rem !important; letter-spacing: -2px !important; }
+    #scry-cursor { display: none !important; }
 }
 
-/* PROPHETIC MODE (FOR PAPER.HTML) */
-.prophetic-mode { background: #000; color: #fff; text-align: center; }
-.proclamation-text p::first-letter { font-size: 4rem; color: red; float: left; margin-right: 10px; }
-#bury-void { background: red; color: #fff; border: none; padding: 20px 40px; font-weight: 900; font-size: 1.5rem; cursor: pointer; box-shadow: 8px 8px 0px #fff; }
+/* --- PROPHETIC MODE OVERRIDES --- */
+.prophetic-mode { 
+    background-color: #000 !important; 
+    color: #fff !important; 
+}
+
+.prophetic-mode .proclamation-text h2 {
+    background-color: #fff !important;
+    color: #000 !important;
+    text-align: center;
+}
+
+.prophetic-mode .proclamation-text p::first-letter { 
+    font-size: 4rem; color: red; float: left; margin-right: 10px; line-height: 1; 
+}
