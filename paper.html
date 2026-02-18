@@ -22,13 +22,13 @@
 
         <section class="proclamation-text">
             <h2>I. THE JUDGE-PENITENT</h2>
-            <p>TO UNDERSTAND THE FATALISM THAT PERMEATES THE LITERATURE OF THIS SOIL, ONE MUST RECKON WITH THE INESCAPABLE NATURE OF ITS JUDGMENT[cite: 15]. THE APPALACHIAN SUBJECT EXISTS IN A "MALCOMFORT" CELL—A PUNISHMENT DESIGNED TO DISTORT THE HUMAN SHAPE UNTIL THE PRISONER CAN NEITHER STAND UP NOR LIE DOWN[cite: 17]. POVERTY IS NOT MERELY A MATERIAL DEFICIT; IT IS AN EXISTENTIAL MARKING[cite: 19]. TO BE RURAL IN AMERICA IS TO BE THE PUNCHLINE OF A JOKE YOU DID NOT WRITE[cite: 22].</p>
+            [cite_start]<p>TO UNDERSTAND THE FATALISM THAT PERMEATES THE LITERATURE OF THIS SOIL, ONE MUST RECKON WITH THE INESCAPABLE NATURE OF ITS JUDGMENT[cite: 15]. [cite_start]THE APPALACHIAN SUBJECT EXISTS IN A "MALCOMFORT" CELL—A PUNISHMENT DESIGNED TO DISTORT THE HUMAN SHAPE UNTIL THE PRISONER CAN NEITHER STAND UP NOR LIE DOWN[cite: 17]. POVERTY IS NOT MERELY A MATERIAL DEFICIT; [cite_start]IT IS AN EXISTENTIAL MARKING[cite: 19]. [cite_start]TO BE RURAL IN AMERICA IS TO BE THE PUNCHLINE OF A JOKE YOU DID NOT WRITE[cite: 22].</p>
             
             <h2>II. THE RUPTURE OF DASEIN</h2>
-            <p>IF POVERTY IS THE CONDITION, THEN THE LAND IS THE FOUNDATION OF BEING[cite: 35]. TO BE HUMAN IS TO "DWELL"[cite: 38]. MOUNTAINTOP REMOVAL IS NOT MERELY ENVIRONMENTAL DESTRUCTION; IT IS AN ACT OF ONTOLOGICAL NEGATION[cite: 42]. WHEN THE PHYSICAL LANDMARKS OF MEMORY ARE BLASTED INTO DUST, THE COMMUNITY IS UNMOORED[cite: 43]. THE HOME BECOMES UNHEIMLICH—UN-HOMELY[cite: 46].</p>
+            [cite_start]<p>IF POVERTY IS THE CONDITION, THEN THE LAND IS THE FOUNDATION OF BEING[cite: 35]. [cite_start]TO BE HUMAN IS TO "DWELL"[cite: 38]. MOUNTAINTOP REMOVAL IS NOT MERELY ENVIRONMENTAL DESTRUCTION; [cite_start]IT IS AN ACT OF ONTOLOGICAL NEGATION[cite: 42]. [cite_start]WHEN THE PHYSICAL LANDMARKS OF MEMORY ARE BLASTED INTO DUST, THE COMMUNITY IS UNMOORED[cite: 43]. [cite_start]THE HOME BECOMES UNHEIMLICH—UN-HOMELY[cite: 46].</p>
 
             <h2>III. THE KNIGHT OF FAITH</h2>
-            <p>BENEATH THE WEIGHT OF ENGINEERED RUIN, THERE IS A FEROCIOUS TRANSCENDENCE[cite: 61, 84]. RASH’S BECKY FUNCTIONS AS THE "KNIGHT OF FAITH," MAKING THE ABSURD MOVEMENT OF BELIEVING SHE WILL RECEIVE THE WORLD BACK DESPITE THE METH LABS[cite: 65, 66]. TO LOVE A RUINED PLACE IS THE BEGINNING OF UN-RUINING IT[cite: 76]. THE MOUNTAIN REMAINS[cite: 85].</p>
+            [cite_start]<p>BENEATH THE WEIGHT OF ENGINEERED RUIN, THERE IS A FEROCIOUS TRANSCENDENCE[cite: 61, 84]. [cite_start]RASH’S BECKY FUNCTIONS AS THE "KNIGHT OF FAITH," MAKING THE ABSURD MOVEMENT OF BELIEVING SHE WILL RECEIVE THE WORLD BACK DESPITE THE METH LABS[cite: 65, 66]. [cite_start]TO LOVE A RUINED PLACE IS THE BEGINNING OF UN-RUINING IT[cite: 76]. [cite_start]THE MOUNTAIN REMAINS[cite: 85].</p>
         </section>
 
         <div class="void-button-container">
@@ -38,25 +38,25 @@
 
     <script>
         function buryTheVoid() {
-    document.body.style.filter = "invert(1) contrast(500%) brightness(0.5) blur(2px)";
-    document.body.style.transition = "all 0.1s steps(2)";
-    
-    // The "Access" link reveals after the glitch
-    setTimeout(() => {
-        const fullPaperLink = document.createElement('a');
-        fullPaperLink.href = 'plain-text.html';
-        fullPaperLink.innerText = "[ ACCESS FULL CONFERENCE PAPER ]";
-        // Stark white background to ensure visibility
-        fullPaperLink.style = "position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); color:#000; z-index:100000; font-family:sans-serif; font-weight:900; background:#fff; padding:25px; text-decoration:none; border: 5px solid red; text-align:center;";
-        document.body.appendChild(fullPaperLink);
-    }, 500);
-}
+            document.body.style.filter = "invert(1) contrast(500%) brightness(0.5) blur(2px)";
+            document.body.style.transition = "all 0.1s steps(2)";
+            
+            setTimeout(() => {
+                const fullPaperLink = document.createElement('a');
+                fullPaperLink.href = 'plain-text.html';
+                fullPaperLink.innerText = "[ ACCESS FULL CONFERENCE PAPER ]";
+                fullPaperLink.style = "position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); color:#000; z-index:100000; font-family:sans-serif; font-weight:900; background:#fff; padding:25px; text-decoration:none; border: 5px solid red; text-align:center; box-shadow: 0 0 50px red;";
+                document.body.appendChild(fullPaperLink);
+            }, 500);
+        }
 
         const scry = document.getElementById('scry-cursor');
-        document.addEventListener('mousemove', (e) => {
-            scry.style.left = e.pageX + 15 + 'px';
-            scry.style.top = e.pageY + 15 + 'px';
-        });
+        if (scry) {
+             document.addEventListener('mousemove', (e) => {
+                scry.style.left = e.pageX + 15 + 'px';
+                scry.style.top = e.pageY + 15 + 'px';
+            });
+        }
     </script>
     <div id="scry-cursor">PROCLAMATION</div>
 </body>
