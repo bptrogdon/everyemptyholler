@@ -57,6 +57,9 @@
         <div class="audio-container">
             <iframe src="https://untitled.stream/embed/0tOBubZoGPUX" width="100%" height="344" frameborder="0" allowFullScreen="" allow="picture-in-picture" loading="lazy"></iframe>
         </div>
+        <div style="text-align: center; margin-top: 40px; border: 4px solid red; display: block; padding: 20px; background: #000;">
+            <a href="adventure.html" style="color: #fff; font-weight: 900; text-decoration: none; font-size: 1.5rem;">[ ENTER THE SIMULATION ]</a>
+        </div>
     </section>
 
     <section class="manifesto-grid">
@@ -87,9 +90,7 @@
     <div class="nav-bridge">
         <a href="paper.html" class="proclamation-link">ASCEND THE RIDGELINE // READ THE PROCLAMATION</a>
     </div>
-<div style="text-align: center; margin-top: 20px; border: 2px solid red; display: inline-block; padding: 10px;">
-    <a href="adventure.html" style="color: red; font-weight: 900; text-decoration: none;">[ ENTER THE SIMULATION ]</a>
-</div>
+
     <footer>
         B.P. TROGDON // 2026
     </footer>
@@ -98,10 +99,12 @@
 
     <script>
         const scry = document.getElementById('scry-cursor');
-        document.addEventListener('mousemove', (e) => {
-            scry.style.left = e.pageX + 15 + 'px';
-            scry.style.top = e.pageY + 15 + 'px';
-        });
+        if(scry){
+             document.addEventListener('mousemove', (e) => {
+                scry.style.left = e.pageX + 15 + 'px';
+                scry.style.top = e.pageY + 15 + 'px';
+            });
+        }
     </script>
 </body>
 </html>
