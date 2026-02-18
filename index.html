@@ -84,6 +84,15 @@
     <footer>
         B.P. TROGDON // 2026
     </footer>
+<div id="scry-cursor">ONTIC VOID</div>
 
+<script>
+    const scry = document.getElementById('scry-cursor');
+    document.addEventListener('mousemove', (e) => {
+        scry.style.left = e.pageX + 15 + 'px';
+        scry.style.top = e.pageY + 15 + 'px';
+    });
+</script>
 </body>
+
 </html>
