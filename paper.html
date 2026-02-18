@@ -41,17 +41,36 @@
 
     <script>
         function buryTheVoid() {
-            // TARGET THE REALITY LAYER ONLY
+            // 1. Target the Reality Layer and Blur it
             const reality = document.getElementById('reality-layer');
-            reality.style.filter = "invert(1) contrast(500%) brightness(0.5) blur(4px)";
-            reality.style.transition = "all 0.1s steps(2)";
+            reality.style.filter = "invert(1) contrast(500%) brightness(0.5) blur(5px)";
+            reality.style.transition = "all 0.2s ease"; // Smooth transition into the void
             
+            // 2. Wait 0.5 seconds, then spawn the Sharp Link
             setTimeout(() => {
                 const fullPaperLink = document.createElement('a');
                 fullPaperLink.href = 'plain-text.html';
                 fullPaperLink.innerText = "[ ACCESS FULL CONFERENCE PAPER ]";
-                // SHARP STYLES
-                fullPaperLink.style = "position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); color:#000; z-index:999999; font-family:sans-serif; font-weight:900; background:#fff; padding:25px; text-decoration:none; border: 5px solid red; text-align:center; box-shadow: 0 0 50px red; width: 80%; max-width: 400px;";
+                
+                // STYLING: This link exists OUTSIDE the blurred reality layer
+                fullPaperLink.style.position = "fixed";
+                fullPaperLink.style.top = "50%";
+                fullPaperLink.style.left = "50%";
+                fullPaperLink.style.transform = "translate(-50%, -50%)";
+                fullPaperLink.style.color = "#000";
+                fullPaperLink.style.zIndex = "999999";
+                fullPaperLink.style.fontFamily = "sans-serif";
+                fullPaperLink.style.fontWeight = "900";
+                fullPaperLink.style.backgroundColor = "#fff";
+                fullPaperLink.style.padding = "25px";
+                fullPaperLink.style.textDecoration = "none";
+                fullPaperLink.style.border = "5px solid red";
+                fullPaperLink.style.textAlign = "center";
+                fullPaperLink.style.boxShadow = "0 0 50px red";
+                fullPaperLink.style.width = "85%";
+                fullPaperLink.style.maxWidth = "400px";
+                fullPaperLink.style.fontSize = "1.2rem";
+
                 document.body.appendChild(fullPaperLink);
             }, 500);
         }
