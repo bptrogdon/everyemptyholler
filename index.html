@@ -2,48 +2,209 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>APPALACHIA: A VORTEX</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FATALISM AND TRANSCENDENCE</title>
+    <style>
+        /* INSCRUTABLE ARCHIVAL FOUNDATION */
+        body {
+            background-color: #f4f4f4; /* Slightly aged paper color */
+            color: #1a1a1a;
+            font-family: "Courier New", Courier, monospace; /* More archival/typewriter */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            line-height: 1.1;
+        }
+
+        .background-topo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.1;
+            background-image: repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%);
+            background-size: 10px 10px;
+        }
+
+        header {
+            padding: 60px 40px;
+            border-bottom: 2px solid #000;
+        }
+
+        h1 {
+            font-family: sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: -2px;
+        }
+
+        .thesis-statement {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-top: 20px;
+            font-style: italic;
+            border-left: 5px solid #000;
+            padding-left: 15px;
+        }
+
+        /* THE SHATTERED PHENOMENOLOGY SECTION */
+        .vortex-grid {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid #000;
+        }
+
+        .shard {
+            position: absolute;
+            padding: 40px;
+            max-width: 450px;
+            z-index: 1;
+        }
+
+        .shard-1 {
+            background: #000;
+            color: #fff;
+            top: 5%;
+            left: 5%;
+            transform: rotate(-2deg);
+            clip-path: polygon(0% 0%, 100% 5%, 95% 100%, 5% 95%);
+        }
+
+        .shard-2 {
+            background: #fff;
+            border: 2px solid #000;
+            bottom: 10%;
+            right: 5%;
+            transform: rotate(1deg);
+            clip-path: polygon(5% 5%, 100% 0%, 90% 100%, 0% 90%);
+        }
+
+        .quote {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* MUSIC: EVERY EMPTY HOLLER */
+        .audio-section {
+            padding: 80px 40px;
+            background: #fff;
+        }
+
+        .audio-label {
+            font-family: sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: right;
+        }
+
+        .audio-container {
+            max-width: 800px;
+            margin: 0 auto;
+            filter: contrast(200%) grayscale(100%);
+            border: 2px solid #000;
+        }
+
+        /* THE BLAST/BLESS DIALECTIC */
+        .manifesto {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #000;
+            color: #fff;
+        }
+
+        .column {
+            padding: 60px 40px;
+            border: 1px solid #333;
+        }
+
+        .column h2 {
+            font-family: sans-serif;
+            font-size: 4rem;
+            margin: 0 0 20px 0;
+            letter-spacing: 5px;
+        }
+
+        .manifesto-list {
+            list-style: square;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            padding: 40px;
+            background: #f4f4f4;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+    </style>
 </head>
 <body>
 
+    <div class="background-topo"></div>
+
     <header>
-        <h1>APPALACHIA: A VORTEX</h1>
-        <h2 class="sub-head">THE DIALECTIC.</h2>
+        <h1>FATALISM AND TRANSCENDENCE</h1>
+        <p class="thesis-statement">
+            "An existential reading of the Appalachian experience: The dialectic between systemic erasure and the stubborn act of dwelling."
+        </p>
     </header>
 
-    <div class="vortex-container">
-        <div class="shard shard-1"></div>
-        <div class="shard shard-2"></div>
-        
-        <div class="center-text">
-            <h3>FATALISM</h3>
-            <hr>
-            <h3>TRANSCENDENCE</h3>
+    <section class="vortex-grid">
+        <div class="shard shard-1">
+            <p class="quote">
+                "The opioid crisis is not merely a medical failure; it is a symptom of the ontic void left by capital-driven erasure."
+            </p>
         </div>
-    </div>
 
-    <main class="grid-container">
-        <section class="blast">
+        <div class="shard shard-2">
+            <p class="quote">
+                "In the act of staying, the subject rejects the absurd hero’s silence and chooses the phenomenology of place as resistance."
+            </p>
+        </div>
+    </section>
+
+    <section class="audio-section">
+        <div class="audio-label">EVERY EMPTY HOLLER</div>
+        <div class="audio-container">
+            <iframe src="https://untitled.stream/embed/0tOBubZoGPUX" width="100%" height="344" frameborder="0" allowFullScreen="" allow="picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <section class="manifesto">
+        <div class="column">
             <h2>BLAST</h2>
-            <p>COAL-DUST FATALISM!</p>
-            <ul>
-                <li>THE "FLATLAND GAZE"</li>
-                <li>SYSTEMIC ERASURE</li>
-                <li>OPIOID SHADOWS</li>
+            <ul class="manifesto-list">
+                <li>THE DETERMINISTIC "RESOURCE CURSE"</li>
+                <li>FLATLAND SOCIOLOGICAL REDUCTIONISM</li>
+                <li>THE ONTOLOGICAL DISPLACEMENT OF THE HOLLER</li>
+                <li>EXISTENTIAL APATHY MASQUERADING AS TRADITION</li>
             </ul>
-        </section>
-
-        <section class="bless">
+        </div>
+        <div class="column">
             <h2>BLESS</h2>
-            <p>THE STUBBORN DWELLING!</p>
             <ul>
-                <li>HEIDEGGER’S RESISTANCE</li>
-                <li>KINGSOLVER’S HEROES</li>
-                <li>THE ACT OF STAYING</li>
+                <li class="manifesto-list">THE PRE-REFLECTIVE ATTACHMENT TO THE COVE</li>
+                <li class="manifesto-list">HEIDEGGERIAN 'BUILDING DWELLING THINKING'</li>
+                <li class="manifesto-list">THE TRANSGRESSIVE JOY OF THE OUTSIDER FOLK</li>
+                <li class="manifesto-list">SURVIVING THE ABSURDITY OF THE LANDSCAPE</li>
             </ul>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <footer>
+        B.P. TROGDON // APPALACHIAN STUDIES ASSOCIATION // HUNTINGTON, WV // 2026
+    </footer>
 
 </body>
 </html>
