@@ -261,15 +261,15 @@ footer {
 
     /* 2. HEADER FIX - SCALING TYPOGRAPHY */
     header { padding: 40px 20px !important; }
+    /* INSIDE @media (max-width: 768px) */
     h1 { 
-        /* VW units ensure it always fits the width */
-        font-size: 11vw !important; 
-        letter-spacing: -2px !important; 
-        white-space: normal !important; /* ALLOWS WRAPPING */
-        overflow-wrap: break-word !important; /* PREVENTS OVERFLOW */
+        font-size: 8.5vw !important; /* SCALED DOWN TO FIT 13 CHARACTERS */
+        letter-spacing: -3px !important; /* TIGHTER TRACKING */
+        white-space: normal !important; /* ALLOWS "FATALISM" & "TRANSCENDENCE" TO STACK */
         line-height: 1.0 !important;
         margin-bottom: 20px !important;
         text-align: center;
+        width: 100%; /* ENSURES IT TAKES FULL CONTAINER WIDTH */
     }
 
     .header-sub {
@@ -335,4 +335,5 @@ footer {
     /* 7. HIDE DESKTOP CURSOR */
     #scry-cursor { display: none !important; }
 }
+
 
