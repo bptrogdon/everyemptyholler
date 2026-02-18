@@ -1,4 +1,7 @@
 /* GLOBAL SETTINGS */
+*, *:before, *:after {
+  box-sizing: border-box !important;
+}
 * { box-sizing: border-box; text-transform: uppercase; cursor: crosshair; }
 
 body {
@@ -257,10 +260,16 @@ h1:hover {
 @media (max-width: 768px) {
     /* 1. RESET THE VORTEX */
     .vortex-grid, .vortex-manifesto {
-        height: auto !important; /* Allow the section to grow vertically */
-        display: block !important;
-        padding: 40px 20px !important;
-    }
+    height: auto !important;
+    min-height: 100vh; /* Ensures it at least fills the screen */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    .topo-background-image {
+    background-attachment: scroll !important; /* Fixed backgrounds can be buggy on iOS */
+    background-size: 200% auto !important; /* Zooms in on the map for more detail */
+    animation: drift 120s linear infinite alternate !important; /* Slows it down for mobile */
+}
 
     /* 2. UNSHATTER THE SHARDS */
     .shard {
@@ -311,3 +320,4 @@ h1:hover {
         display: none !important; /* Hover effects don't work on touchscreens */
     }
 }
+
