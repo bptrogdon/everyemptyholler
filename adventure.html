@@ -8,9 +8,9 @@
     <style>
         /* ADVENTURE-SPECIFIC STYLES */
         body {
-            background-color: #000;
-            color: #fff;
-            font-family: "Courier New", Courier, monospace; /* Terminal vibe */
+            background-color: #000 !important;
+            color: #fff !important;
+            font-family: "Courier New", Courier, monospace !important;
             padding: 20px;
             max-width: 800px;
             margin: 0 auto;
@@ -26,7 +26,7 @@
             font-size: 1.2rem;
             line-height: 1.6;
             margin-bottom: 40px;
-            white-space: pre-wrap; /* Preserves poetic spacing */
+            white-space: pre-wrap; 
         }
 
         .choice-btn {
@@ -60,7 +60,6 @@
         .nav-return a { color: #555; text-decoration: none; }
         .nav-return a:hover { color: #fff; }
 
-        /* MOBILE OPTIMIZATION */
         @media (max-width: 768px) {
             body { border: none; padding: 15px; }
             #game-output { font-size: 1rem; }
@@ -80,7 +79,6 @@
     </div>
 
     <script>
-        // THE GAME DATA
         const story = {
             start: {
                 text: "YOU STAND ON THE EDGE OF THE RECLAIMED MINE SITE.\n\nTo your left, the creek runs orange with acid mine drainage.\nTo your right, the overgrown path leads back to the trailer.\n\nThe silence is heavy. It feels like judgment.",
@@ -145,16 +143,14 @@
             }
         };
 
-        // THE ENGINE
         function renderScene(sceneId) {
             const scene = story[sceneId];
             const output = document.getElementById("game-output");
             const choicesDiv = document.getElementById("choices-container");
 
-            // Typewriter Effect for Text
             output.innerHTML = ""; 
             let i = 0;
-            const speed = 20; // Speed of typing
+            const speed = 20; 
             
             function typeWriter() {
                 if (i < scene.text.length) {
@@ -165,7 +161,6 @@
             }
             typeWriter();
 
-            // Render Choices
             choicesDiv.innerHTML = "";
             scene.choices.forEach(choice => {
                 const btn = document.createElement("button");
@@ -176,7 +171,6 @@
             });
         }
 
-        // START GAME
         renderScene("start");
     </script>
 </body>
