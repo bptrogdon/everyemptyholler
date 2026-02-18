@@ -140,22 +140,24 @@ footer { padding: 80px; text-align: center; font-size: 1.5rem; letter-spacing: 1
     }
     @media (orientation: landscape) { .orientation-warning { display: flex; } }
 
-    /* --- ADD THE "E" FIX HERE --- */
+    /* --- THE "E" AND LINE-BREAK FIX --- */
     h1 { 
-        font-size: clamp(1.8rem, 10vw, 2.5rem) !important; /* Forces shrinkage to fit screen */
-        letter-spacing: -1px !important; 
-        overflow-wrap: break-word;
-        word-wrap: break-word;
+        font-size: clamp(1.4rem, 8.5vw, 2.1rem) !important; /* Scaled down slightly more for certainty */
+        letter-spacing: -2.5px !important; /* Tighter for mobile to keep "E" inside */
+        white-space: nowrap !important; /* FORCES ALL ONE LINE */
+        display: block;
+        text-align: center;
+        width: 100%;
     }
 
     .header-sub {
-        font-size: 1rem !important;
-        width: 100% !important; /* Ensures the black bar stretches to edges */
+        font-size: 0.9rem !important;
+        width: 100% !important; 
         display: block !important;
         padding: 15px !important;
-        box-shadow: 4px 4px 0px red !important; /* Scales glow for mobile */
+        box-shadow: 4px 4px 0px red !important; 
     }
-    /* ----------------------------- */
+    /* --------------------------------- */
 
     /* 2. FORCE DARK MODE FOR PROPHETIC TEXT */
     .prophetic-mode {
@@ -209,6 +211,7 @@ footer { padding: 80px; text-align: center; font-size: 1.5rem; letter-spacing: 1
 .prophetic-mode .proclamation-text p::first-letter { 
     font-size: 4rem; color: red; float: left; margin-right: 10px; line-height: 1; 
 }
+
 /* --- THE GLOWING ASCENT --- */
 @media (max-width: 768px) {
     .proclamation-link {
