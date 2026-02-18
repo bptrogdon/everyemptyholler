@@ -38,13 +38,19 @@
 
     <script>
         function buryTheVoid() {
-            document.body.style.filter = "invert(1) contrast(500%) brightness(0.5) blur(2px)";
-            document.body.style.transition = "all 0.1s steps(2)";
-            setTimeout(() => {
-                alert("THE VOID IS BURIED. THE REMAINS ARE SONG.");
-                window.location.href = "index.html";
-            }, 500);
-        }
+    document.body.style.filter = "invert(1) contrast(500%) brightness(0.5) blur(2px)";
+    document.body.style.transition = "all 0.1s steps(2)";
+    
+    // The "Access" link reveals after the glitch
+    setTimeout(() => {
+        const fullPaperLink = document.createElement('a');
+        fullPaperLink.href = 'plain-text.html';
+        fullPaperLink.innerText = "[ ACCESS FULL CONFERENCE PAPER ]";
+        // Stark white background to ensure visibility
+        fullPaperLink.style = "position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); color:#000; z-index:100000; font-family:sans-serif; font-weight:900; background:#fff; padding:25px; text-decoration:none; border: 5px solid red; text-align:center;";
+        document.body.appendChild(fullPaperLink);
+    }, 500);
+}
 
         const scry = document.getElementById('scry-cursor');
         document.addEventListener('mousemove', (e) => {
