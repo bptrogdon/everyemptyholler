@@ -226,3 +226,30 @@ h1:hover {
     filter: invert(1);
     cursor: help;
 }
+/* MOBILE & RESPONSIVE FIXES */
+@media (max-width: 768px) {
+    h1 { font-size: 3rem !important; letter-spacing: -2px !important; }
+    .shard { position: relative !important; width: 100% !important; left: 0 !important; top: 0 !important; transform: none !important; clip-path: none !important; margin: 10px 0; }
+    .text-flood, .manifesto-grid { grid-template-columns: 1fr !important; }
+    .proclamation-text { font-size: 1.1rem !important; text-align: left !important; }
+    .proclamation-text h2 { font-size: 1.8rem !important; }
+}
+
+/* NAVIGATION BRIDGE */
+.nav-bridge { text-align: center; padding: 60px 20px; background: #000; }
+.proclamation-link { color: #fff; text-decoration: none; font-weight: 900; font-size: 1.5rem; border: 3px solid #fff; padding: 20px; transition: 0.2s; }
+.proclamation-link:hover { background: #fff; color: #000; }
+
+/* THE BURY BUTTON */
+.void-button-container { margin-top: 100px; padding-bottom: 100px; }
+#bury-void {
+    background: red; color: #fff; border: none; padding: 30px 60px;
+    font-size: 2rem; font-weight: 900; cursor: pointer;
+    box-shadow: 10px 10px 0px #000;
+}
+#bury-void:active { transform: translate(5px, 5px); box-shadow: 5px 5px 0px #000; }
+
+/* PROPHETIC MODE TWEAKS */
+.prophetic-mode .proclamation-text p::first-letter {
+    font-size: 4rem; color: red; float: left; margin-right: 10px; line-height: 1;
+}
