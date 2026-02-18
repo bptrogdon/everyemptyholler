@@ -1,0 +1,57 @@
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: "Arial Black", sans-serif; /* Use Impact or a bold Google Font */
+    text-transform: uppercase;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 5rem;
+    line-height: 0.8;
+    letter-spacing: -5px;
+    transform: skew(-5deg);
+    margin: 0;
+}
+
+.sub-head {
+    font-size: 3rem;
+    margin-top: -10px;
+}
+
+/* The "Shattered" Background Effect */
+.shard {
+    position: absolute;
+    background: #000;
+    z-index: -1;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Adjust for jaggedness */
+    opacity: 0.1;
+}
+
+.shard-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: -5%;
+    transform: rotate(15deg);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 100px;
+    border-top: 10px solid #000;
+}
+
+.blast, .bless {
+    padding: 20px;
+}
+
+.blast h2 {
+    background: #000;
+    color: #fff;
+    padding: 10px;
+    display: inline-block;
+}
